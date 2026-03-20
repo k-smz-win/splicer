@@ -1,0 +1,20 @@
+version: 0.2
+
+# CodeBuild からバックエンドをデプロイする場合に使用する。
+# GitHub Actions（deploy-backend.yml）を使う場合はこのファイルは不要。
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20
+  pre_build:
+    commands:
+      - npm ci
+  build:
+    commands:
+      # JWT_SECRET は CodeBuild の環境変数（または Parameter Store）から注入する
+      - npx serverless deploy --stage prod
+
+cache:
+  paths:
+    - node_modules/**/*

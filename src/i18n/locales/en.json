@@ -1,0 +1,67 @@
+{
+  "app": {
+    "title": "Fusion Splicer System"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "back": "Back",
+    "logout": "Logout",
+    "language": "Language"
+  },
+  "auth": {
+    "login": "Login",
+    "loginTitle": "Fusion Splicer System",
+    "email": "Email",
+    "password": "Password",
+    "loginButton": "Login",
+    "loggingIn": "Logging in...",
+    "invalidCredentials": "Invalid email or password"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "projects": "Projects",
+    "fusion": "Fusion Data",
+    "map": "Map",
+    "users": "User Management"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome, {{name}}",
+    "role": "Role",
+    "projectsDesc": "Manage projects",
+    "fusionDesc": "View fusion work data",
+    "mapDesc": "View fusion work locations on map",
+    "usersDesc": "Manage users"
+  },
+  "project": {
+    "title": "Project List",
+    "id": "ID",
+    "name": "Project Name",
+    "description": "Description",
+    "createdAt": "Created At"
+  },
+  "fusion": {
+    "title": "Fusion Data List",
+    "id": "ID",
+    "name": "Name",
+    "status": "Status",
+    "workerName": "Worker",
+    "startedAt": "Started At",
+    "finishedAt": "Finished At",
+    "success": "Success",
+    "fail": "Fail"
+  },
+  "map": {
+    "title": "Fusion Data Map"
+  },
+  "error": {
+    "accessDenied": "Access Denied",
+    "accessDeniedDesc": "You do not have permission to view this page.",
+    "backToDashboard": "Back to Dashboard"
+  }
+}

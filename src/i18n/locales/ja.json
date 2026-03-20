@@ -1,0 +1,67 @@
+{
+  "app": {
+    "title": "融着接続器システム"
+  },
+  "common": {
+    "loading": "読み込み中...",
+    "error": "エラーが発生しました",
+    "save": "保存",
+    "cancel": "キャンセル",
+    "delete": "削除",
+    "edit": "編集",
+    "back": "戻る",
+    "logout": "ログアウト",
+    "language": "言語"
+  },
+  "auth": {
+    "login": "ログイン",
+    "loginTitle": "融着接続器システム",
+    "email": "メールアドレス",
+    "password": "パスワード",
+    "loginButton": "ログイン",
+    "loggingIn": "ログイン中...",
+    "invalidCredentials": "メールアドレスまたはパスワードが違います"
+  },
+  "nav": {
+    "dashboard": "ダッシュボード",
+    "projects": "プロジェクト",
+    "fusion": "融着データ",
+    "map": "地図",
+    "users": "ユーザー管理"
+  },
+  "dashboard": {
+    "title": "ダッシュボード",
+    "welcome": "ようこそ、{{name}} さん",
+    "role": "ロール",
+    "projectsDesc": "プロジェクトを管理します",
+    "fusionDesc": "融着作業データを確認します",
+    "mapDesc": "融着作業の位置情報を地図で確認します",
+    "usersDesc": "ユーザーを管理します"
+  },
+  "project": {
+    "title": "プロジェクト一覧",
+    "id": "ID",
+    "name": "プロジェクト名",
+    "description": "説明",
+    "createdAt": "作成日時"
+  },
+  "fusion": {
+    "title": "融着データ一覧",
+    "id": "ID",
+    "name": "名称",
+    "status": "ステータス",
+    "workerName": "作業者",
+    "startedAt": "開始日時",
+    "finishedAt": "終了日時",
+    "success": "成功",
+    "fail": "失敗"
+  },
+  "map": {
+    "title": "融着データ地図"
+  },
+  "error": {
+    "accessDenied": "アクセス権限がありません",
+    "accessDeniedDesc": "このページを表示する権限がありません。",
+    "backToDashboard": "ダッシュボードへ戻る"
+  }
+}

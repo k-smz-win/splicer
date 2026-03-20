@@ -1,0 +1,26 @@
+{
+  "name": "fusion-splicer-backend",
+  "version": "1.0.0",
+  "description": "Serverless backend - production-ready API foundation for AWS Lambda + API Gateway",
+  "private": true,
+  "scripts": {
+    "dev": "serverless offline start --host 0.0.0.0 --httpPort 3000",
+    "build": "serverless package",
+    "deploy": "serverless deploy --stage prod"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "@serverless/typescript": "^3.0.0",
+    "@types/aws-lambda": "^8.10.145",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/node": "^20.0.0",
+    "esbuild": "^0.25.0",
+    "serverless": "^3.0.0",
+    "serverless-esbuild": "^1.54.6",
+    "serverless-offline": "^13.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.6.0"
+  }
+}

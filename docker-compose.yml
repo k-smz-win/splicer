@@ -1,0 +1,31 @@
+name: splicer
+
+services:
+  frontend:
+    build: .
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      # Vite proxy の転送先。Docker 内では backend サービス名で解決する。
+      - VITE_API_URL=http://backend:3000
+    depends_on:
+      - backend
+    command: npx vite --host 0.0.0.0 --port 5173
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    environment:
+      # 本番環境では必ず強固な値に差し替えること
+      - JWT_SECRET=local-dev-secret-change-in-production
+      - NODE_ENV=development
