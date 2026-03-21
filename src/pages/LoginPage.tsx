@@ -50,16 +50,18 @@ export function LoginPage() {
           </Button>
         </form>
 
-        {/* 開発用ヒント */}
-        <div className="mt-6 border-t pt-4">
-          <p className="text-xs text-gray-400 text-center mb-2">開発用アカウント（password: password）</p>
-          <div className="grid grid-cols-2 gap-1 text-xs text-gray-500">
-            <span>SYS_ADMIN:</span><span>admin@example.com</span>
-            <span>MANAGER:</span><span>manager@example.com</span>
-            <span>USER:</span><span>user@example.com</span>
-            <span>WORKER:</span><span>worker@example.com</span>
+        {/* 開発用ヒント（本番ビルドでは非表示） */}
+        {import.meta.env.DEV && (
+          <div className="mt-6 border-t pt-4">
+            <p className="text-xs text-gray-400 text-center mb-2">開発用アカウント（password: password）</p>
+            <div className="grid grid-cols-2 gap-1 text-xs text-gray-500">
+              <span>SYS_ADMIN:</span><span>admin@example.com</span>
+              <span>MANAGER:</span><span>manager@example.com</span>
+              <span>USER:</span><span>user@example.com</span>
+              <span>WORKER:</span><span>worker@example.com</span>
+            </div>
           </div>
-        </div>
+        )}
       </Card>
     </div>
   )

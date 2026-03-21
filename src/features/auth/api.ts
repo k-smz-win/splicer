@@ -1,7 +1,7 @@
 import type { User } from '../../types'
 import type { Permission } from '../../constants/permissions'
 import { tokenStore } from './token'
-import { apiFetch } from '../../lib/apiClient'
+import { apiFetch } from '../../api/client'
 import type { LoginCredentials } from './types'
 
 /**
@@ -13,7 +13,7 @@ import type { LoginCredentials } from './types'
  *
  * @throws {Error} 認証情報が一致しない場合（message: 'invalid_credentials'）
  */
-export async function loginApi(
+export async function login(
   credentials: LoginCredentials,
 ): Promise<{ user: User; permissions: Permission[] }> {
   const res = await apiFetch('/api/auth/login', {
@@ -35,7 +35,7 @@ export async function loginApi(
  *
  * @throws {Error} トークンが無効・期限切れの場合
  */
-export async function meApi(): Promise<{ user: User; permissions: Permission[] }> {
+export async function fetchCurrentUser(): Promise<{ user: User; permissions: Permission[] }> {
   const res = await apiFetch('/api/auth/me')
 
   if (!res.ok) throw new Error('invalid_token')

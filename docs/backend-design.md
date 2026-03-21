@@ -1,43 +1,78 @@
-# バックエンド設計メモ
+# バックエンド設計
 
-フロントエンドの将来対応（Cognito・API移行）を見据えた設計の整理。
+## このドキュメントの目的
 
----
-
-## 権限モデルの考え方
-
-バックエンドが権限の**唯一の正（Single Source of Truth）**になる。
-
-```
-フロントは「何を表示するか」の制御のみ持つ
-バックエンドは「何が許可されるか」の定義と検証を持つ
-```
-
-現在フロントの `ROLE_PERMISSIONS`（roles.ts）に置いているマッピングは、
-バックエンド実装後に `role_permissions` テーブルへ移行し、フロント側は削除する。
+Splicerバックエンドの設計方針・DB設計・API仕様を記録する。
+将来のCognito移行やDB本格導入を見据えた設計の意図を残しておく。
 
 ---
 
-## テーブル設計
+## 現在の実装状況
 
-### users
+```
+現在（モック）                     将来（本格実装）
+────────────────────              ──────────────────────
+Lambda + ハードコードデータ    →   Lambda + RDS（PostgreSQL）
+JWTはローカル発行              →   Cognito認証に移行
+権限マッピングはフロントに存在  →   role_permissionsテーブルで管理
+```
+
+> **なぜこの段階で設計を固めるか**
+> フロントエンドとバックエンドのインターフェース（APIレスポンス形式）を今のうちに確定しておくことで、将来の移行コストを最小にする。
+
+---
+
+## 設計の核心：権限モデル
+
+### 原則
+
+**バックエンドが権限の唯一の正（Single Source of Truth）になる。**
+
+```
+フロントエンド  →  「何を表示するか」の制御のみ持つ
+バックエンド    →  「何が許可されるか」の定義と検証を持つ
+```
+
+### 現在との違い
+
+| | 現在（モック） | 将来（本格実装） |
+|---|---|---|
+| 権限マッピングの場所 | `constants/roles.ts`（フロント） | `role_permissions` テーブル（DB） |
+| フロントへの渡し方 | ロールコードのみ | 解決済みの `permissions[]` 配列 |
+| 権限追加の方法 | フロントのコードを変更 | DBのレコードを追加するだけ |
+
+移行時に `constants/roles.ts` の `ROLE_PERMISSIONS` は削除する。
+
+---
+
+## DB設計
+
+### ER図
+
+```
+users ──── roles ──── role_permissions ──── permissions
+  │                         │
+  │                   (多対多の中間テーブル)
+  └── role_id で roles を参照
+```
+
+### テーブル定義
+
+#### users
 
 | カラム | 型 | 説明 |
 |---|---|---|
 | id | UUID | PK |
 | name | VARCHAR | 表示名 |
 | email | VARCHAR | ログイン識別子（UNIQUE） |
-| cognito_sub | VARCHAR | Cognito 連携時に使用。パスワードは Cognito 管理 |
+| cognito_sub | VARCHAR | Cognito連携時に使用 |
 | role_id | UUID | FK → roles.id |
 | created_at | TIMESTAMPTZ | UTC |
 | updated_at | TIMESTAMPTZ | UTC |
 
-> Cognito 導入前は `password_hash` カラムを追加してもよいが、
-> 最初から Cognito を前提に設計するなら `cognito_sub` のみで足りる。
+> `password_hash` を持たない設計にしている。Cognito導入前の過渡期はJWTをローカル発行するが、`cognito_sub` で突き合わせる設計を最初から前提にすることでCognito移行時の変更を最小にする。
 
----
-
-### roles
+#### roles
 
 | カラム | 型 | 説明 |
 |---|---|---|
@@ -46,9 +81,7 @@
 | name | VARCHAR | 表示用ラベル |
 | created_at | TIMESTAMPTZ | UTC |
 
----
-
-### permissions
+#### permissions
 
 | カラム | 型 | 説明 |
 |---|---|---|
@@ -57,32 +90,20 @@
 | name | VARCHAR | 表示用ラベル |
 | created_at | TIMESTAMPTZ | UTC |
 
----
+#### role_permissions（中間テーブル）
 
-### role_permissions（authority テーブル）
-
-ロールと権限の多対多マッピング。このテーブルが権限の実体。
+ロールと権限の多対多マッピング。**このテーブルが権限の実体。**
 
 | カラム | 型 | 説明 |
 |---|---|---|
 | role_id | UUID | FK → roles.id |
 | permission_id | UUID | FK → permissions.id |
 
-PK は `(role_id, permission_id)` の複合キー。
+PKは `(role_id, permission_id)` の複合キー。
 
----
+### 初期データ（シードデータ）
 
-## ER 図（概略）
-
-```
-users ──── roles ──── role_permissions ──── permissions
-```
-
----
-
-## 初期データ（マスターデータ）
-
-roles と permissions は固定値なのでシードデータとして投入する。
+`roles` と `permissions` は固定値なのでシード時に一括投入する。
 
 ```sql
 -- roles
@@ -109,15 +130,20 @@ INSERT INTO permissions (code, name) VALUES
 
 ---
 
-## API 設計
+## API仕様
 
-### POST /auth/login
+### POST /api/auth/login
 
-ログイン成功時にユーザー情報と**解決済みの権限リスト**を返す。
-フロントは `permissions[]` を受け取り、`ROLE_PERMISSIONS` の代わりに使う。
+**目的**: ログイン認証。成功時にユーザー情報と解決済みの権限リストを返す。
 
 ```json
-// レスポンス
+// リクエスト
+{
+  "email": "yamada@example.com",
+  "password": "password"
+}
+
+// レスポンス（成功時 200）
 {
   "user": {
     "id": "uuid",
@@ -134,31 +160,47 @@ INSERT INTO permissions (code, name) VALUES
 }
 ```
 
-> バックエンド側で `role_permissions` テーブルを JOIN して権限コードの配列に変換する。
-> フロントはロールを知る必要はなく、`permissions[]` だけで表示制御が完結する。
+> `permissions[]` はバックエンドが `role_permissions` テーブルをJOINして解決した結果。
+> フロントはロールコードを持つ必要なく、`permissions[]` だけで表示制御が完結する。
 
 ---
 
-### GET /auth/me
+### GET /api/auth/me
 
-セッション復元・ページリロード時に現在のユーザー情報を再取得する。
-レスポンス形式は `/auth/login` と同じ。
+**目的**: ページリロード・セッション復元時に現在のユーザー情報を再取得する。
+
+- Authorization ヘッダーにJWTが必要
+- レスポンス形式は `/api/auth/login` と同じ
 
 ---
 
-## フロントエンド移行時の変更箇所
+### GET /api/fusion
 
-バックエンドが実装されたときに変更が必要なフロントのファイルは1箇所のみ。
+**目的**: 融着データ一覧の取得。
+
+---
+
+### GET /api/projects
+
+**目的**: プロジェクト一覧の取得。
+
+---
+
+## フロントエンドへの影響（移行時の変更箇所）
+
+本格実装への移行時に変更が必要なファイルは最小限になるよう設計されている。
 
 | ファイル | 変更内容 |
 |---|---|
-| `features/auth/api.ts` の `loginApi` | モック実装を実 API 呼び出しに差し替える |
+| `features/auth/api.ts` の `loginApi` | モック実装を実API呼び出しに差し替える |
+| `contexts/AuthContext.tsx` | `permissions` を受け取れるよう型を拡張 |
+| `constants/roles.ts` | `ROLE_PERMISSIONS` を削除 |
 
 ```ts
 // 移行後の AuthContext（変更イメージ）
 interface AuthContextValue {
   user: User | null
-  permissions: Permission[]     // 追加：API から受け取った権限リスト
+  permissions: Permission[]     // APIから受け取った権限リスト
   isAuthenticated: boolean
   login: (user: User, permissions: Permission[]) => void
   logout: () => void
@@ -170,11 +212,12 @@ const hasPermission = (permission: Permission) =>
   permissions.includes(permission)
 ```
 
-`ROLE_PERMISSIONS`（roles.ts）はこの移行時に削除する。
-
 ---
 
 ## 将来拡張メモ
 
-- **プロジェクト単位の権限**：現在はロール単位だが、将来は `project_user_permissions` テーブルを追加してプロジェクトごとに権限を付与できる設計にする
-- **Cognito 連携**：`cognito_sub` を users テーブルに持ち、JWT の `sub` クレームで突き合わせる。`loginApi` を Cognito SDK 呼び出しに差し替えるだけでよい設計にしてある
+| 拡張内容 | 概要 |
+|---|---|
+| **プロジェクト単位の権限** | `project_user_permissions` テーブルを追加してプロジェクトごとに権限を付与できる設計にする |
+| **Cognito連携** | `cognito_sub` をusersテーブルに持ち、JWTの `sub` クレームで突き合わせる。`loginApi` をCognito SDK呼び出しに差し替えるだけで対応できる設計 |
+| **RDS移行** | 現在はハードコードデータ。RDS導入時はシードデータをそのまま投入する |

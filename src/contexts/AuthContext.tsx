@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useEffect, type ReactNode } from '
 import type { User } from '../types'
 import type { Permission } from '../constants/permissions'
 import { tokenStore } from '../features/auth/token'
-import { meApi } from '../features/auth/api'
+import { fetchCurrentUser } from '../features/auth/api'
 
 interface AuthState {
   user: User | null
@@ -54,7 +54,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setReady(true)
       return
     }
-    meApi()
+    fetchCurrentUser()
       .then(({ user, permissions }) => {
         setAuthState({ user, permissions, isAuthenticated: true })
       })

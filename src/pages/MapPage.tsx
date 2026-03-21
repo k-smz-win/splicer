@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { useFusions } from '../features/fusion/hooks'
-import { useFusionMarkers } from '../features/map/hooks'
+import { useFusionMarkers } from '../features/fusion/hooks'
 import { MapView } from '../components/MapView'
 
 export function MapPage() {

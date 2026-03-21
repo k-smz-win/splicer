@@ -1,7 +1,8 @@
 import type { APIGatewayProxyHandler } from 'aws-lambda'
 import { authService } from '../services/authService'
 import { permissionService } from '../services/permissionService'
-import { ok, badRequest, unauthorized, internalError, extractBearerToken } from '../utils/response'
+import { ok, badRequest, unauthorized, internalError } from '../utils/response'
+import { withToken } from '../middleware/withToken'
 
 /**
  * POST /api/auth/login
@@ -39,26 +40,10 @@ export const login: APIGatewayProxyHandler = async (event) => {
  *
  * Bearer トークンから認証済みユーザー情報と解決済み権限を返す。
  * セッション復元・ページリロード時にフロントが呼び出す。
- *
- * @remarks
- * トークン検証・ユーザー取得は authService.getAuthenticatedUser() に委譲する。
- * 権限解決は permissionService.resolve() に委譲する。
  */
-export const me: APIGatewayProxyHandler = async (event) => {
-  try {
-    const token = extractBearerToken(event)
-    if (!token) return unauthorized('missing_token')
-
-    const user = await authService.getAuthenticatedUser(token)
-    const permissions = permissionService.resolve(user.roleId)
-
-    return ok({
-      user: { id: user.id, name: user.name, email: user.email, role: user.role },
-      permissions,
-    })
-  } catch (err) {
-    const message = err instanceof Error ? err.message : 'internal_error'
-    if (message === 'invalid_token' || message === 'user_not_found') return unauthorized(message)
-    return internalError(message)
-  }
-}
+export const me = withToken(async (_event, user, permissions) => {
+  return ok({
+    user: { id: user.id, name: user.name, email: user.email, role: user.role },
+    permissions,
+  })
+})

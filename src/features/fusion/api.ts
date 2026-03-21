@@ -1,5 +1,5 @@
 import type { Fusion } from '../../types'
-import { apiFetch } from '../../lib/apiClient'
+import { apiFetch } from '../../api/client'
 
 /**
  * 融着作業データを取得する。

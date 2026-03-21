@@ -1,5 +1,5 @@
 import type { Project } from '../../types'
-import { apiFetch } from '../../lib/apiClient'
+import { apiFetch } from '../../api/client'
 
 /**
  * プロジェクト一覧を取得する。
