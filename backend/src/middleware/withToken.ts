@@ -2,7 +2,7 @@ import type { APIGatewayProxyHandler, APIGatewayProxyEvent, APIGatewayProxyResul
 import type { PermissionCode, ResolvedUser } from '../models/types'
 import { authService } from '../services/authService'
 import { permissionService } from '../services/permissionService'
-import { unauthorized, internalError, extractBearerToken } from '../utils/response'
+import { unauthorized, handleAuthError, extractBearerToken } from '../utils/response'
 
 type AuthenticatedHandler = (
   event: APIGatewayProxyEvent,
@@ -26,9 +26,7 @@ export function withToken(handler: AuthenticatedHandler): APIGatewayProxyHandler
 
       return await handler(event, user, permissions)
     } catch (err) {
-      const message = err instanceof Error ? err.message : 'internal_error'
-      if (message === 'invalid_token' || message === 'user_not_found') return unauthorized(message)
-      return internalError(message)
+      return handleAuthError(err)
     }
   }
 }
