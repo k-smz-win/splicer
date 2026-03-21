@@ -20,40 +20,25 @@ export function DashboardPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <PermissionGate permission={Permission.MANAGE_PROJECT}>
           <Link to="/projects" className="group block">
-            <DashboardCard
-              title={t('nav.projects')}
-              desc={t('dashboard.projectsDesc')}
-            />
+            <DashboardCard title={t('nav.projects')} desc={t('dashboard.projectsDesc')} />
           </Link>
         </PermissionGate>
 
         <PermissionGate permission={Permission.VIEW_FUSION}>
-          <Link to="/fusion" className="block">
-            <DashboardCard
-              title={t('nav.fusion')}
-              desc={t('dashboard.fusionDesc')}
-              className="hover:border-blue-400 hover:shadow"
-            />
+          <Link to="/fusion" className="group block">
+            <DashboardCard title={t('nav.fusion')} desc={t('dashboard.fusionDesc')} />
           </Link>
         </PermissionGate>
 
         <PermissionGate permission={Permission.VIEW_MAP}>
-          <Link to="/map" className="block">
-            <DashboardCard
-              title={t('nav.map')}
-              desc={t('dashboard.mapDesc')}
-              className="hover:border-blue-400 hover:shadow"
-            />
+          <Link to="/map" className="group block">
+            <DashboardCard title={t('nav.map')} desc={t('dashboard.mapDesc')} />
           </Link>
         </PermissionGate>
 
         <PermissionGate permission={Permission.VIEW_USER}>
-          <Link to="#" className="block">
-            <DashboardCard
-              title={t('nav.users')}
-              desc={t('dashboard.usersDesc')}
-              className="hover:border-blue-400 hover:shadow"
-            />
+          <Link to="#" className="group block">
+            <DashboardCard title={t('nav.users')} desc={t('dashboard.usersDesc')} />
           </Link>
         </PermissionGate>
       </div>

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
-import { login } from './api'
+import { login as apiLogin } from './api'
 import type { LoginCredentials } from './types'
 
 /**
@@ -19,7 +19,7 @@ export function useLogin() {
     setLoading(true)
     setError(null)
     try {
-      const { user, permissions } = await login(credentials)
+      const { user, permissions } = await apiLogin(credentials)
       login(user, permissions)
       navigate('/dashboard')
     } catch {
