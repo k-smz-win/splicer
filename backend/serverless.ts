@@ -50,6 +50,7 @@ const serverlessConfig: AWS = {
     'serverless-offline': {
       httpPort: 3000,
       host: '0.0.0.0',
+      noPrependStageInUrl: true,
     },
   },
 }

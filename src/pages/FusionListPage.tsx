@@ -1,6 +1,8 @@
 import { useTranslation } from 'react-i18next'
 import { useFusions } from '../features/fusion/hooks'
 import { formatLocal } from '../utils/date'
+import { PageTitle } from '../components/ui/PageTitle'
+import { Table, Thead, Tbody, Tr, Th, Td } from '../components/ui/Table'
 
 export function FusionListPage() {
   const { t } = useTranslation()
@@ -11,34 +13,30 @@ export function FusionListPage() {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold text-gray-800 mb-6">{t('fusion.title')}</h2>
+      <PageTitle>{t('fusion.title')}</PageTitle>
 
-      <div className="bg-white rounded-lg shadow overflow-x-auto">
-        <table className="w-full text-sm">
-          <thead className="bg-gray-50 border-b">
-            <tr>
-              <th className="text-left px-4 py-3 text-gray-600 font-medium">{t('fusion.name')}</th>
-              <th className="text-left px-4 py-3 text-gray-600 font-medium">{t('fusion.status')}</th>
-              <th className="text-left px-4 py-3 text-gray-600 font-medium">{t('fusion.workerName')}</th>
-              <th className="text-left px-4 py-3 text-gray-600 font-medium">{t('fusion.startedAt')}</th>
-              <th className="text-left px-4 py-3 text-gray-600 font-medium">{t('fusion.finishedAt')}</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-100">
-            {fusions.map((f) => (
-              <tr key={f.id} className="hover:bg-gray-50">
-                <td className="px-4 py-3 font-medium text-gray-800">{f.name}</td>
-                <td className="px-4 py-3">
-                  <StatusBadge status={f.status} />
-                </td>
-                <td className="px-4 py-3 text-gray-600">{f.workerName}</td>
-                <td className="px-4 py-3 text-gray-500">{formatLocal(f.startedAt)}</td>
-                <td className="px-4 py-3 text-gray-500">{formatLocal(f.finishedAt)}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <Table>
+        <Thead>
+          <tr>
+            <Th>{t('fusion.name')}</Th>
+            <Th>{t('fusion.status')}</Th>
+            <Th>{t('fusion.workerName')}</Th>
+            <Th>{t('fusion.startedAt')}</Th>
+            <Th>{t('fusion.finishedAt')}</Th>
+          </tr>
+        </Thead>
+        <Tbody>
+          {fusions.map((f) => (
+            <Tr key={f.id}>
+              <Td className="font-medium text-gray-800">{f.name}</Td>
+              <Td><StatusBadge status={f.status} /></Td>
+              <Td className="text-gray-600">{f.workerName}</Td>
+              <Td className="text-gray-500">{formatLocal(f.startedAt)}</Td>
+              <Td className="text-gray-500">{formatLocal(f.finishedAt)}</Td>
+            </Tr>
+          ))}
+        </Tbody>
+      </Table>
     </div>
   )
 }

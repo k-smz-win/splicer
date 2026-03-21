@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useLogin } from '../features/auth/hooks'
+import { Button } from '../components/ui/Button'
+import { Card } from '../components/ui/Card'
+import { FormField } from '../components/ui/FormField'
 
 export function LoginPage() {
   const { t } = useTranslation()
@@ -15,50 +18,36 @@ export function LoginPage() {
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <div className="bg-white rounded-lg shadow p-8 w-full max-w-sm">
+      <Card className="p-8 w-full max-w-sm">
         <h1 className="text-xl font-bold text-gray-800 mb-6 text-center">
           {t('auth.loginTitle')}
         </h1>
 
         <form onSubmit={onSubmit} className="flex flex-col gap-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              {t('auth.email')}
-            </label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="admin@example.com"
-            />
-          </div>
+          <FormField
+            label={t('auth.email')}
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            placeholder="admin@example.com"
+          />
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              {t('auth.password')}
-            </label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
+          <FormField
+            label={t('auth.password')}
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
 
           {error && (
             <p className="text-red-600 text-sm text-center">{t(`auth.${error}`)}</p>
           )}
 
-          <button
-            type="submit"
-            disabled={loading}
-            className="bg-blue-700 text-white rounded py-2 text-sm font-medium hover:bg-blue-800 disabled:opacity-50 transition-colors"
-          >
+          <Button type="submit" disabled={loading}>
             {loading ? t('auth.loggingIn') : t('auth.loginButton')}
-          </button>
+          </Button>
         </form>
 
         {/* 開発用ヒント */}
@@ -71,7 +60,7 @@ export function LoginPage() {
             <span>WORKER:</span><span>worker@example.com</span>
           </div>
         </div>
-      </div>
+      </Card>
     </div>
   )
 }

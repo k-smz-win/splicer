@@ -1,7 +1,9 @@
+import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useAuth } from '../contexts/AuthContext'
 import { PermissionGate } from '../components/PermissionGate'
 import { Permission } from '../constants/permissions'
+import { PageTitle } from '../components/ui/PageTitle'
 
 export function DashboardPage() {
   const { t } = useTranslation()
@@ -9,7 +11,7 @@ export function DashboardPage() {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold text-gray-800 mb-2">{t('dashboard.title')}</h2>
+      <PageTitle>{t('dashboard.title')}</PageTitle>
       <p className="text-gray-600 mb-6">
         {t('dashboard.welcome', { name: user?.name })}　／　{t('dashboard.role')}: {user?.role}
       </p>
@@ -38,12 +40,12 @@ export function DashboardPage() {
 
 function DashboardCard({ title, desc, to }: { title: string; desc: string; to: string }) {
   return (
-    <a
-      href={to}
+    <Link
+      to={to}
       className="block bg-white border border-gray-200 rounded-lg p-5 hover:border-blue-400 hover:shadow transition-all"
     >
       <h3 className="font-semibold text-gray-800 mb-1">{title}</h3>
       <p className="text-sm text-gray-500">{desc}</p>
-    </a>
+    </Link>
   )
 }
