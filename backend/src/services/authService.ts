@@ -25,7 +25,7 @@ async function authenticate(email: string, password: string): Promise<ResolvedUs
   const role = SEED_ROLES.find((r) => r.id === user.roleId)
   if (!role) throw new Error('role_not_found') // データ不整合。起こらないはずだが検出のため throw
 
-  return { id: user.id, name: user.name, email: user.email, role: role.code, roleId: user.roleId }
+  return { sub: user.id, companyId: 'company-root', role: role.code }
 }
 
 /**
@@ -63,7 +63,7 @@ async function getAuthenticatedUser(token: string): Promise<ResolvedUser> {
   const role = SEED_ROLES.find((r) => r.id === user.roleId)
   if (!role) throw new Error('role_not_found')
 
-  return { id: user.id, name: user.name, email: user.email, role: role.code, roleId: user.roleId }
+  return { sub: user.id, companyId: 'company-root', role: role.code }
 }
 
 export const authService = { authenticate, issueJwt, getAuthenticatedUser }

@@ -11,11 +11,18 @@ type AuthenticatedHandler = (
 ) => Promise<APIGatewayProxyResult>
 
 /**
- * トークン検証・権限チェックを共通化したミドルウェア。
- * 各ハンドラーから認証・認可の重複ロジックを排除する。
+ * @deprecated
+ * このミドルウェアは廃止予定。新しいハンドラーは使用しないこと。
+ * auth/index.ts の resolveAuthenticatedUser() を handler 内で直接呼び出すこと。
  *
- * @param requiredPermission - このエンドポイントに必要な権限コード
- * @param handler - 認証済みリクエストを処理する関数
+ * 移行例:
+ *   // After（関数方式）
+ *   export const handler: APIGatewayProxyHandler = async (event) => {
+ *     const user = await resolveAuthenticatedUser(event)
+ *     const permissions = permissionService.resolve(user.role)
+ *     if (!permissions.includes('MANAGE_PROJECT')) return forbidden()
+ *     ...
+ *   }
  */
 export function withAuth(
   requiredPermission: PermissionCode,
@@ -27,7 +34,7 @@ export function withAuth(
       if (!token) return unauthorized('missing_token')
 
       const user = await authService.getAuthenticatedUser(token)
-      const permissions = permissionService.resolve(user.roleId)
+      const permissions = permissionService.resolve(user.role)
 
       if (!permissions.includes(requiredPermission)) return forbidden()
 

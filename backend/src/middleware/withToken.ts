@@ -11,9 +11,9 @@ type AuthenticatedHandler = (
 ) => Promise<APIGatewayProxyResult>
 
 /**
- * トークン検証のみを行うミドルウェア。権限チェックは行わない。
- * /api/auth/me のように認証は必要だが特定権限を要求しないエンドポイントに使う。
- * 権限チェックが必要な場合は withAuth を使うこと。
+ * @deprecated
+ * このミドルウェアは廃止予定。新しいハンドラーは使用しないこと。
+ * auth/index.ts の resolveAuthenticatedUser() を handler 内で直接呼び出すこと。
  */
 export function withToken(handler: AuthenticatedHandler): APIGatewayProxyHandler {
   return async (event) => {
@@ -22,7 +22,7 @@ export function withToken(handler: AuthenticatedHandler): APIGatewayProxyHandler
       if (!token) return unauthorized('missing_token')
 
       const user = await authService.getAuthenticatedUser(token)
-      const permissions = permissionService.resolve(user.roleId)
+      const permissions = permissionService.resolve(user.role)
 
       return await handler(event, user, permissions)
     } catch (err) {

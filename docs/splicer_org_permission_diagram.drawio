@@ -1,0 +1,222 @@
+<mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0"/>
+    <mxCell id="1" parent="0"/>
+
+    <!-- タイトル -->
+    <mxCell id="2" value="Splicer　組織階層・権限管理設計（RBAC）"
+      style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=22;fontStyle=1;fontColor=#2C3E50;"
+      vertex="1" parent="1">
+      <mxGeometry x="200" y="20" width="900" height="50" as="geometry"/>
+    </mxCell>
+
+    <!-- サブタイトル -->
+    <mxCell id="3" value="Role-Based Access Control：ロールベースのアクセス制御"
+      style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=13;fontColor=#7F8C8D;"
+      vertex="1" parent="1">
+      <mxGeometry x="200" y="55" width="900" height="25" as="geometry"/>
+    </mxCell>
+
+    <!-- ===== セクション背景 ===== -->
+    <mxCell id="bg_org" value=""
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#AED6F1;strokeWidth=2;"
+      vertex="1" parent="1">
+      <mxGeometry x="40" y="90" width="330" height="450" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="bg_user" value=""
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAFAF1;strokeColor=#A9DFBF;strokeWidth=2;"
+      vertex="1" parent="1">
+      <mxGeometry x="490" y="90" width="330" height="450" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="bg_perm" value=""
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDEDEC;strokeColor=#F1948A;strokeWidth=2;"
+      vertex="1" parent="1">
+      <mxGeometry x="940" y="90" width="330" height="450" as="geometry"/>
+    </mxCell>
+
+    <!-- ===== セクションラベル ===== -->
+    <mxCell id="lbl_org" value="組織階層"
+      style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=15;fontStyle=1;fontColor=#1A5276;"
+      vertex="1" parent="1">
+      <mxGeometry x="40" y="95" width="330" height="30" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="lbl_user" value="ユーザー（接点）"
+      style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=15;fontStyle=1;fontColor=#1E8449;"
+      vertex="1" parent="1">
+      <mxGeometry x="490" y="95" width="330" height="30" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="lbl_perm" value="権限管理（RBAC）"
+      style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=15;fontStyle=1;fontColor=#922B21;"
+      vertex="1" parent="1">
+      <mxGeometry x="940" y="95" width="330" height="30" as="geometry"/>
+    </mxCell>
+
+    <!-- ===== 組織階層ノード ===== -->
+    <mxCell id="company" value="&lt;b&gt;Company&lt;/b&gt;&lt;br/&gt;&lt;font style=&apos;font-size:10px;&apos;&gt;企業全体を管理する最上位の単位&lt;br/&gt;複数の部門を持つことができる&lt;/font&gt;"
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2980B9;strokeColor=#1A5276;fontColor=#FFFFFF;fontSize=12;arcSize=10;"
+      vertex="1" parent="1">
+      <mxGeometry x="80" y="145" width="250" height="70" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="org" value="&lt;b&gt;Organization（部門）&lt;/b&gt;&lt;br/&gt;&lt;font style=&apos;font-size:10px;&apos;&gt;会社内の部門・事業部・グループ&lt;br/&gt;複数のチームを管理する&lt;/font&gt;"
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3498DB;strokeColor=#2980B9;fontColor=#FFFFFF;fontSize=12;arcSize=10;"
+      vertex="1" parent="1">
+      <mxGeometry x="80" y="278" width="250" height="70" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="team" value="&lt;b&gt;Team（チーム）&lt;/b&gt;&lt;br/&gt;&lt;font style=&apos;font-size:10px;&apos;&gt;実際の作業グループ&lt;br/&gt;ユーザーが所属する最小単位&lt;/font&gt;"
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5DADE2;strokeColor=#3498DB;fontColor=#FFFFFF;fontSize=12;arcSize=10;"
+      vertex="1" parent="1">
+      <mxGeometry x="80" y="411" width="250" height="70" as="geometry"/>
+    </mxCell>
+
+    <!-- ===== ユーザーノード（中央・接点） ===== -->
+    <mxCell id="user" value="&lt;b&gt;User（ユーザー）&lt;/b&gt;&lt;br/&gt;&lt;font style=&apos;font-size:10px;&apos;&gt;システムを利用するメンバー&lt;br/&gt;チームに所属し、ロールを持つ&lt;br/&gt;&lt;i&gt;組織と権限の接点となる存在&lt;/i&gt;&lt;/font&gt;"
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#27AE60;strokeColor=#1E8449;fontColor=#FFFFFF;fontSize=12;arcSize=10;"
+      vertex="1" parent="1">
+      <mxGeometry x="530" y="330" width="250" height="80" as="geometry"/>
+    </mxCell>
+
+    <!-- ===== 権限階層ノード ===== -->
+    <mxCell id="role" value="&lt;b&gt;Role（ロール）&lt;/b&gt;&lt;br/&gt;&lt;font style=&apos;font-size:10px;&apos;&gt;権限のセット&lt;br/&gt;例：管理者 / 編集者 / 閲覧者&lt;/font&gt;"
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E74C3C;strokeColor=#C0392B;fontColor=#FFFFFF;fontSize=12;arcSize=10;"
+      vertex="1" parent="1">
+      <mxGeometry x="980" y="278" width="250" height="70" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="permission" value="&lt;b&gt;Permission（権限）&lt;/b&gt;&lt;br/&gt;&lt;font style=&apos;font-size:10px;&apos;&gt;具体的な操作の許可&lt;br/&gt;例：作成・読取・更新・削除（CRUD）&lt;/font&gt;"
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C0392B;strokeColor=#922B21;fontColor=#FFFFFF;fontSize=12;arcSize=10;"
+      vertex="1" parent="1">
+      <mxGeometry x="980" y="411" width="250" height="70" as="geometry"/>
+    </mxCell>
+
+    <!-- ===== エッジ：組織階層（縦の親子関係） ===== -->
+    <mxCell id="e_comp_org" value="1対多"
+      style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2980B9;strokeWidth=2;fontSize=10;labelBackgroundColor=#EBF5FB;endArrow=block;endFill=1;"
+      edge="1" source="company" target="org" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="e_org_team" value="1対多"
+      style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2980B9;strokeWidth=2;fontSize=10;labelBackgroundColor=#EBF5FB;endArrow=block;endFill=1;"
+      edge="1" source="org" target="team" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- ===== エッジ：クロスセクション（横の関係） ===== -->
+    <mxCell id="e_team_user" value="所属する"
+      style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#1E8449;strokeWidth=2.5;fontSize=12;fontStyle=1;labelBackgroundColor=#EAFAF1;endArrow=open;endFill=0;"
+      edge="1" source="team" target="user" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="e_user_role" value="ロールを持つ"
+      style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#E74C3C;strokeWidth=2.5;fontSize=12;fontStyle=1;labelBackgroundColor=#FDEDEC;endArrow=open;endFill=0;"
+      edge="1" source="user" target="role" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- ===== エッジ：権限階層（縦の関係） ===== -->
+    <mxCell id="e_role_perm" value="含む（1対多）"
+      style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#C0392B;strokeWidth=2;fontSize=10;labelBackgroundColor=#FDEDEC;endArrow=block;endFill=1;"
+      edge="1" source="role" target="permission" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- ===== ロール例（吹き出し） ===== -->
+    <mxCell id="role_examples" value="&lt;b&gt;ロール例：&lt;/b&gt;&lt;br/&gt;・Admin（管理者）&lt;br/&gt;・Editor（編集者）&lt;br/&gt;・Viewer（閲覧者）"
+      style="shape=callout;whiteSpace=wrap;html=1;fillColor=#FADBD8;strokeColor=#E74C3C;fontSize=10;align=left;perimeter=calloutPerimeter;size=15;position=0.5;direction=west;"
+      vertex="1" parent="1">
+      <mxGeometry x="1000" y="155" width="170" height="80" as="geometry"/>
+    </mxCell>
+
+    <!-- ===== Permission例（吹き出し） ===== -->
+    <mxCell id="perm_examples" value="&lt;b&gt;権限例：&lt;/b&gt;&lt;br/&gt;・project:create&lt;br/&gt;・project:read&lt;br/&gt;・project:delete"
+      style="shape=callout;whiteSpace=wrap;html=1;fillColor=#FADBD8;strokeColor=#C0392B;fontSize=10;align=left;perimeter=calloutPerimeter;size=15;position=0.5;direction=west;"
+      vertex="1" parent="1">
+      <mxGeometry x="1000" y="495" width="170" height="80" as="geometry"/>
+    </mxCell>
+
+    <!-- ===== 説明エリア（下部） ===== -->
+    <mxCell id="desc_bg" value=""
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDFEFE;strokeColor=#BDC3C7;strokeWidth=1;"
+      vertex="1" parent="1">
+      <mxGeometry x="40" y="580" width="1230" height="230" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="desc_title" value="この設計について"
+      style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=14;fontStyle=1;fontColor=#2C3E50;"
+      vertex="1" parent="1">
+      <mxGeometry x="60" y="588" width="300" height="25" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="desc1" value="&lt;b&gt;設計の目的&lt;/b&gt;&lt;br/&gt;組織構造（誰がどのチームに属するか）と&lt;br/&gt;権限管理（誰が何をできるか）を分離する。&lt;br/&gt;人事異動や権限変更をそれぞれ独立して&lt;br/&gt;管理できる柔軟な設計。"
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#AED6F1;fontSize=11;align=left;verticalAlign=top;"
+      vertex="1" parent="1">
+      <mxGeometry x="60" y="618" width="350" height="95" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="desc2" value="&lt;b&gt;メリット&lt;/b&gt;&lt;br/&gt;・&lt;b&gt;柔軟性&lt;/b&gt;：組織変更しても権限はそのまま維持&lt;br/&gt;・&lt;b&gt;拡張性&lt;/b&gt;：新しいロールを追加するだけで対応可&lt;br/&gt;・&lt;b&gt;再利用性&lt;/b&gt;：同じロールを複数ユーザーに割当可&lt;br/&gt;・&lt;b&gt;監査容易&lt;/b&gt;：誰が何の権限を持つか一目で分かる"
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAFAF1;strokeColor=#A9DFBF;fontSize=11;align=left;verticalAlign=top;"
+      vertex="1" parent="1">
+      <mxGeometry x="430" y="618" width="380" height="95" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="desc3" value="&lt;b&gt;ユースケース例&lt;/b&gt;&lt;br/&gt;・&lt;b&gt;権限変更&lt;/b&gt;：ロールを付け替えるだけでOK&lt;br/&gt;・&lt;b&gt;組織変更&lt;/b&gt;：チーム移動しても権限は維持される&lt;br/&gt;・&lt;b&gt;新入社員&lt;/b&gt;：ロール割り当てだけで即座に利用開始&lt;br/&gt;・&lt;b&gt;兼務&lt;/b&gt;：複数チーム所属・複数ロール割り当て可"
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF9E7;strokeColor=#F9E79F;fontSize=11;align=left;verticalAlign=top;"
+      vertex="1" parent="1">
+      <mxGeometry x="830" y="618" width="400" height="95" as="geometry"/>
+    </mxCell>
+
+    <!-- 凡例 -->
+    <mxCell id="leg_title" value="凡例："
+      style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontStyle=1;"
+      vertex="1" parent="1">
+      <mxGeometry x="60" y="724" width="50" height="18" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="leg1" value=""
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2980B9;strokeColor=#1A5276;"
+      vertex="1" parent="1">
+      <mxGeometry x="115" y="724" width="18" height="18" as="geometry"/>
+    </mxCell>
+    <mxCell id="leg1t" value="組織（青系）"
+      style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;"
+      vertex="1" parent="1">
+      <mxGeometry x="138" y="724" width="100" height="18" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="leg2" value=""
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#27AE60;strokeColor=#1E8449;"
+      vertex="1" parent="1">
+      <mxGeometry x="255" y="724" width="18" height="18" as="geometry"/>
+    </mxCell>
+    <mxCell id="leg2t" value="ユーザー（緑系）"
+      style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;"
+      vertex="1" parent="1">
+      <mxGeometry x="278" y="724" width="120" height="18" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="leg3" value=""
+      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E74C3C;strokeColor=#C0392B;"
+      vertex="1" parent="1">
+      <mxGeometry x="415" y="724" width="18" height="18" as="geometry"/>
+    </mxCell>
+    <mxCell id="leg3t" value="権限（赤系）"
+      style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;"
+      vertex="1" parent="1">
+      <mxGeometry x="438" y="724" width="100" height="18" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="leg_note" value="※ 組織構造と権限管理は独立して変更できます。Userが両者を繋ぐ接点です。"
+      style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontColor=#7F8C8D;"
+      vertex="1" parent="1">
+      <mxGeometry x="560" y="724" width="680" height="18" as="geometry"/>
+    </mxCell>
+
+  </root>
+</mxGraphModel>

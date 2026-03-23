@@ -31,6 +31,12 @@ export const forbidden = (message = 'forbidden') => ({
   body: JSON.stringify({ error: message }),
 })
 
+export const notFound = (message = 'not_found') => ({
+  statusCode: 404,
+  headers: CORS_HEADERS,
+  body: JSON.stringify({ error: message }),
+})
+
 export const internalError = (message = 'internal_error') => ({
   statusCode: 500,
   headers: CORS_HEADERS,
