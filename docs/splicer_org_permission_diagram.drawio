@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e" pages="5">
     <diagram name="①RBACとは" id="page1">
-        <mxGraphModel dx="356" dy="401" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1562" dy="861" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -44,101 +44,310 @@
         </mxGraphModel>
     </diagram>
     <diagram name="②データモデル" id="page2">
-        <mxGraphModel dx="356" dy="401" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="4057" dy="1325" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="t2" value="② データモデル（テーブル構成）" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=26;fontStyle=1;fontColor=#2C3E50;" parent="1" vertex="1">
-                    <mxGeometry x="50" y="20" width="1554" height="50" as="geometry"/>
+                <mxCell id="ll" value="組織管理" style="text;html=1;strokeColor=#AED6F1;fillColor=#EBF5FB;align=center;fontSize=14;fontStyle=1;fontColor=#000000;rounded=1;labelBackgroundColor=default;" parent="1" vertex="1">
+                    <mxGeometry x="18" y="26" width="890" height="32" as="geometry"/>
                 </mxCell>
-                <mxCell id="ll" value="組織管理" style="text;html=1;strokeColor=#AED6F1;fillColor=#EBF5FB;align=center;fontSize=14;fontStyle=1;fontColor=#1A5276;rounded=1;" parent="1" vertex="1">
-                    <mxGeometry x="50" y="80" width="700" height="32" as="geometry"/>
+                <mxCell id="rl" value="権限管理" style="text;html=1;strokeColor=#b85450;fillColor=#f8cecc;align=center;fontSize=14;fontStyle=1;rounded=1;" parent="1" vertex="1">
+                    <mxGeometry x="775" y="846" width="801" height="32" as="geometry"/>
                 </mxCell>
-                <mxCell id="rl" value="権限管理（RBAC）" style="text;html=1;strokeColor=#F1948A;fillColor=#FDEDEC;align=center;fontSize=14;fontStyle=1;fontColor=#922B21;rounded=1;" parent="1" vertex="1">
-                    <mxGeometry x="751" y="80" width="693" height="32" as="geometry"/>
+                <mxCell id="co" value="&lt;span&gt;&lt;b&gt;company&lt;/b&gt;&lt;/span&gt;&lt;hr&gt;companyId（PK）&lt;br&gt;name&lt;br&gt;&lt;font style=&quot;&quot;&gt;&lt;span&gt;type&lt;/span&gt;（&lt;/font&gt;管理会社 / 販売会社 / 代理店 / 顧客）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#000000;fontColor=#000000;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fontStyle=0" parent="1" vertex="1">
+                    <mxGeometry x="240" y="130" width="285" height="108" as="geometry"/>
                 </mxCell>
-                <mxCell id="co" value="&lt;b&gt;company&lt;/b&gt;&lt;hr&gt;id&lt;br&gt;name&lt;br&gt;&lt;font style=&quot;&quot;&gt;&lt;b&gt;type&lt;/b&gt;（&lt;/font&gt;管理会社 / 販売会社 / 代理店 / 顧客）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#000000;fontColor=#000000;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;" parent="1" vertex="1">
-                    <mxGeometry x="263" y="145" width="285" height="108" as="geometry"/>
+                <mxCell id="us" value="&lt;span&gt;&lt;b&gt;user&lt;/b&gt;&lt;/span&gt;&lt;hr&gt;userId（PK）&lt;br&gt;name&lt;br&gt;email&lt;br&gt;companyId（FK）&lt;div&gt;roleId&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#000000;fontColor=#000000;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fontStyle=0" parent="1" vertex="1">
+                    <mxGeometry x="240" y="897" width="285" height="136" as="geometry"/>
                 </mxCell>
-                <mxCell id="us" value="&lt;b&gt;User&lt;/b&gt;&lt;hr&gt;id&lt;br&gt;name&lt;br&gt;email&lt;br&gt;companyId（FK）&lt;div&gt;roleId&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#000000;fontColor=#000000;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;" parent="1" vertex="1">
-                    <mxGeometry x="263" y="591" width="285" height="136" as="geometry"/>
+                <mxCell id="pe" value="&lt;b&gt;permission&lt;/b&gt;&lt;hr&gt;permissionId&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;（PK）&lt;/span&gt;&lt;br&gt;code（user:create など）&lt;br&gt;name" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;" parent="1" vertex="1">
+                    <mxGeometry x="1368" y="912" width="203" height="105" as="geometry"/>
                 </mxCell>
-                <mxCell id="tm" value="&lt;b&gt;team&lt;/b&gt;&lt;hr&gt;id&lt;br&gt;name&lt;br&gt;companyId（FK）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#000000;fontColor=#000000;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;" parent="1" vertex="1">
-                    <mxGeometry x="92" y="303" width="245" height="101" as="geometry"/>
-                </mxCell>
-                <mxCell id="pj" value="&lt;b&gt;project&lt;/b&gt;&lt;hr&gt;id&lt;br&gt;name&lt;br&gt;companyId（FK）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#000000;fontColor=#000000;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;" parent="1" vertex="1">
-                    <mxGeometry x="477" y="302" width="245" height="102" as="geometry"/>
-                </mxCell>
-                <mxCell id="pe" value="&lt;b&gt;permission&lt;/b&gt;&lt;hr&gt;id&lt;br&gt;code（user:create など）&lt;br&gt;name" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDEDEC;strokeColor=#000000;fontColor=#000000;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;" parent="1" vertex="1">
-                    <mxGeometry x="1194" y="606" width="203" height="105" as="geometry"/>
-                </mxCell>
-                <mxCell id="e1" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;fontSize=10;endArrow=block;endFill=1;" parent="1" source="co" target="us" edge="1">
+                <mxCell id="e1" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;fontSize=10;endArrow=none;endFill=0;" parent="1" source="co" target="us" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="e2" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;fontSize=10;endArrow=block;endFill=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" parent="1" source="co" target="tm" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="e3" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;fontSize=10;endArrow=block;endFill=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" parent="1" source="co" target="pj" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;endArrow=block;endFill=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="us" target="ZnZBGO-k_bvxhC7ueBOG-20" edge="1">
+                <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;endArrow=none;endFill=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="us" target="ZnZBGO-k_bvxhC7ueBOG-20" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="851" y="411" as="targetPoint"/>
+                        <mxPoint x="851" y="576" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="ZnZBGO-k_bvxhC7ueBOG-5" value="&lt;b&gt;team_user&lt;/b&gt;&lt;hr&gt;teamId&lt;span style=&quot;&quot;&gt;（FK）&lt;/span&gt;&lt;br&gt;userId（FK）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#000000;fontColor=#000000;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;" parent="1" vertex="1">
-                    <mxGeometry x="92" y="445" width="245" height="89" as="geometry"/>
+                <mxCell id="ZnZBGO-k_bvxhC7ueBOG-20" value="&lt;b&gt;role&lt;/b&gt;&lt;hr&gt;roleId&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;（PK）&lt;/span&gt;&lt;br&gt;name" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;" parent="1" vertex="1">
+                    <mxGeometry x="776" y="912.5" width="139" height="105" as="geometry"/>
                 </mxCell>
-                <mxCell id="ZnZBGO-k_bvxhC7ueBOG-9" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;fontSize=10;endArrow=block;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="tm" target="ZnZBGO-k_bvxhC7ueBOG-5" edge="1">
+                <mxCell id="3t12pCsKNZpKUOoCz9c2-1" value="&lt;b&gt;role_permision&lt;/b&gt;&lt;hr&gt;roleId（FK）&lt;br&gt;permissionId&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;（FK）&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;" parent="1" vertex="1">
+                    <mxGeometry x="1060" y="912.5" width="195" height="104.5" as="geometry"/>
+                </mxCell>
+                <mxCell id="BZHJ74ZKgZyw61kd0ttT-3" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;endArrow=none;endFill=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="pe" target="3t12pCsKNZpKUOoCz9c2-1" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="364.5" y="253" as="sourcePoint"/>
-                        <mxPoint x="364.5" y="669" as="targetPoint"/>
+                        <mxPoint x="1399" y="455" as="sourcePoint"/>
+                        <mxPoint x="1452" y="455" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="ZnZBGO-k_bvxhC7ueBOG-10" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;fontSize=10;endArrow=block;endFill=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" parent="1" source="us" target="ZnZBGO-k_bvxhC7ueBOG-5" edge="1">
+                <mxCell id="BZHJ74ZKgZyw61kd0ttT-6" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;endArrow=none;endFill=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="ZnZBGO-k_bvxhC7ueBOG-20" target="3t12pCsKNZpKUOoCz9c2-1" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="215" y="688" as="sourcePoint"/>
-                        <mxPoint x="215" y="749" as="targetPoint"/>
+                        <mxPoint x="888" y="824" as="sourcePoint"/>
+                        <mxPoint x="1073" y="820" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="ZnZBGO-k_bvxhC7ueBOG-11" value="&lt;b&gt;project_user&lt;/b&gt;&lt;hr&gt;projectId&lt;span style=&quot;&quot;&gt;（FK）&lt;/span&gt;&lt;br&gt;userId（FK）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#000000;fontColor=#000000;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;" parent="1" vertex="1">
-                    <mxGeometry x="477" y="445" width="245" height="88" as="geometry"/>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-1" value="&lt;span&gt;&lt;b&gt;team&lt;/b&gt;&lt;/span&gt;&lt;hr&gt;teamId（PK）&lt;br&gt;name&lt;br&gt;companyId（FK）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#000000;fontColor=#000000;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fontStyle=0" vertex="1" parent="1">
+                    <mxGeometry x="492" y="408" width="245" height="101" as="geometry"/>
                 </mxCell>
-                <mxCell id="ZnZBGO-k_bvxhC7ueBOG-12" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;fontSize=10;endArrow=block;endFill=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="us" target="ZnZBGO-k_bvxhC7ueBOG-11" edge="1">
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-2" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;fontSize=10;endArrow=none;endFill=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" target="fyd32oieSdFDLGJmJ2Nf-1" source="co">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="477" y="583" as="sourcePoint"/>
-                        <mxPoint x="564" y="632" as="targetPoint"/>
+                        <mxPoint x="1074" y="240" as="sourcePoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="ZnZBGO-k_bvxhC7ueBOG-15" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;fontSize=10;endArrow=block;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="pj" target="ZnZBGO-k_bvxhC7ueBOG-11" edge="1">
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-3" value="&lt;span&gt;&lt;b&gt;team_user&lt;/b&gt;&lt;/span&gt;&lt;hr&gt;teamId&lt;span style=&quot;&quot;&gt;（FK）&lt;/span&gt;&lt;br&gt;userId（FK）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#000000;fontColor=#000000;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fontStyle=0" vertex="1" parent="1">
+                    <mxGeometry x="492" y="588" width="245" height="89" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-4" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;fontSize=10;endArrow=none;endFill=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="fyd32oieSdFDLGJmJ2Nf-1" target="fyd32oieSdFDLGJmJ2Nf-3">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="477" y="283" as="sourcePoint"/>
-                        <mxPoint x="564" y="332" as="targetPoint"/>
+                        <mxPoint x="614.5" y="507" as="sourcePoint"/>
+                        <mxPoint x="1104.5" y="772" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="ZnZBGO-k_bvxhC7ueBOG-20" value="&lt;b&gt;role&lt;/b&gt;&lt;hr&gt;id&lt;br&gt;name" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDEDEC;strokeColor=#000000;fontColor=#000000;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;" parent="1" vertex="1">
-                    <mxGeometry x="776" y="606.5" width="139" height="105" as="geometry"/>
-                </mxCell>
-                <mxCell id="3t12pCsKNZpKUOoCz9c2-1" value="&lt;b&gt;role_permision&lt;/b&gt;&lt;hr&gt;roleId（FK）&lt;br&gt;permissionId&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDEDEC;strokeColor=#000000;fontColor=#000000;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;" parent="1" vertex="1">
-                    <mxGeometry x="961" y="606.5" width="195" height="104.5" as="geometry"/>
-                </mxCell>
-                <mxCell id="BZHJ74ZKgZyw61kd0ttT-3" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;endArrow=block;endFill=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="pe" target="3t12pCsKNZpKUOoCz9c2-1" edge="1">
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-5" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;fontSize=10;endArrow=none;endFill=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" target="fyd32oieSdFDLGJmJ2Nf-3" source="us">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="1399" y="359" as="sourcePoint"/>
-                        <mxPoint x="1452" y="359" as="targetPoint"/>
+                        <mxPoint x="1074" y="642" as="sourcePoint"/>
+                        <mxPoint x="955" y="800" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="BZHJ74ZKgZyw61kd0ttT-6" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;endArrow=block;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="ZnZBGO-k_bvxhC7ueBOG-20" target="3t12pCsKNZpKUOoCz9c2-1" edge="1">
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-6" value="&lt;span&gt;&lt;b&gt;project&lt;/b&gt;&lt;/span&gt;&lt;hr&gt;projectId（PK）&lt;br&gt;name&lt;br&gt;companyId（FK）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#000000;fontColor=#000000;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fontStyle=0" vertex="1" parent="1">
+                    <mxGeometry x="48" y="408" width="245" height="102" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-7" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;fontSize=10;endArrow=none;endFill=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" target="fyd32oieSdFDLGJmJ2Nf-6" source="co">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="888" y="659" as="sourcePoint"/>
-                        <mxPoint x="1073" y="655" as="targetPoint"/>
+                        <mxPoint x="312" y="262" as="sourcePoint"/>
                     </mxGeometry>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-8" value="&lt;span&gt;&lt;b&gt;project_user&lt;/b&gt;&lt;/span&gt;&lt;hr&gt;projectId&lt;span style=&quot;&quot;&gt;（FK）&lt;/span&gt;&lt;br&gt;userId（FK）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#000000;fontColor=#000000;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fontStyle=0" vertex="1" parent="1">
+                    <mxGeometry x="48" y="589" width="245" height="88" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-9" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;fontSize=10;endArrow=none;endFill=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" target="fyd32oieSdFDLGJmJ2Nf-8" source="us">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="305" y="709" as="sourcePoint"/>
+                        <mxPoint x="158" y="705" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-10" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;fontSize=10;endArrow=none;endFill=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="fyd32oieSdFDLGJmJ2Nf-6" target="fyd32oieSdFDLGJmJ2Nf-8">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="170.5" y="528.9999999999995" as="sourcePoint"/>
+                        <mxPoint x="158" y="457" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-12" value="&lt;b&gt;company_relation&lt;/b&gt;&lt;br&gt;&lt;hr&gt;parentId&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;（PK）&lt;/span&gt;&lt;br&gt;childId&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;（PK）&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#000000;fontColor=#000000;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fontStyle=0" vertex="1" parent="1">
+                    <mxGeometry x="615" y="130" width="285" height="108" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-15" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="590" y="157" width="25" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-18" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="525" y="157" width="25" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-19" value="N" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="615" y="382" width="27" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-20" value="N" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="615" y="561" width="27" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-21" value="N" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="455" y="871" width="27" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-22" value="N" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="142" y="382" width="27" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-23" value="N" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="142" y="561" width="27" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-24" value="N" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="284" y="871" width="27" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-25" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="456" y="238" width="25" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-26" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="283" y="238" width="25" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-27" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="615" y="510" width="25" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-29" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="145" y="510" width="25" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-30" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="145" y="677" width="25" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-31" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="616" y="677" width="25" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-32" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="750" y="938" width="25" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-33" value="N" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="529" y="938" width="27" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-36" value="N" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="1031" y="938" width="27" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-37" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="916" y="938" width="25" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-39" value="N" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="1255" y="938" width="27" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-40" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="1341" y="938" width="25" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-41" value="融着機管理" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=center;fontSize=14;fontStyle=1;rounded=1;" vertex="1" parent="1">
+                    <mxGeometry x="-718" y="26" width="700" height="32" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-44" value="&lt;span&gt;&lt;b&gt;project_splicer&lt;/b&gt;&lt;/span&gt;&lt;hr&gt;projectId&lt;span style=&quot;&quot;&gt;（FK）&lt;/span&gt;&lt;br&gt;serialNumber（FK）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fontStyle=0" vertex="1" parent="1">
+                    <mxGeometry x="-347" y="415" width="245" height="88" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-46" value="&lt;span&gt;&lt;b&gt;splicer&lt;/b&gt;&lt;/span&gt;&lt;hr&gt;serialNumber&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;（PK）&lt;/span&gt;&lt;br&gt;splicertype&lt;font style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;（&lt;/font&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;T73C）&lt;/span&gt;&lt;br&gt;companyId（FK）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fontStyle=0" vertex="1" parent="1">
+                    <mxGeometry x="-347" y="248" width="245" height="102" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-47" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;fontSize=10;endArrow=none;endFill=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="co" target="fyd32oieSdFDLGJmJ2Nf-46">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="-59.47000000000003" y="259" as="sourcePoint"/>
+                        <mxPoint x="-200.47000000000003" y="361" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-48" value="N" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="-253" y="222" width="27" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-49" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="215" y="157" width="25" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-52" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="-245" y="350" width="25" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-53" value="N" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="-248" y="389" width="27" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-55" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;fontSize=10;endArrow=none;endFill=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="fyd32oieSdFDLGJmJ2Nf-46" target="fyd32oieSdFDLGJmJ2Nf-44">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="-48.5" y="337" as="sourcePoint"/>
+                        <mxPoint x="-48.5" y="415" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-56" value="&lt;span&gt;&lt;b&gt;shipped_splicer&lt;/b&gt;&lt;/span&gt;&lt;hr&gt;serialNumber&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;（PK）&lt;/span&gt;&lt;br&gt;imei&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fontStyle=0" vertex="1" parent="1">
+                    <mxGeometry x="-698" y="247" width="245" height="102" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-58" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;fontSize=10;endArrow=none;endFill=0;exitX=0.998;exitY=0.518;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitPerimeter=0;" edge="1" parent="1" source="fyd32oieSdFDLGJmJ2Nf-56" target="fyd32oieSdFDLGJmJ2Nf-46">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="-322.5" y="-49" as="sourcePoint"/>
+                        <mxPoint x="-322.5" y="38" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-59" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="-453" y="272" width="25" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-61" value="0..1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="-385" y="272" width="38" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-62" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;fontSize=10;endArrow=none;endFill=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="fyd32oieSdFDLGJmJ2Nf-6" target="fyd32oieSdFDLGJmJ2Nf-44">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="87" y="468" as="sourcePoint"/>
+                        <mxPoint x="-126" y="540" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-64" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="23" y="433" width="25" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-66" value="N" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="-101" y="433" width="27" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-69" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;fontSize=10;endArrow=none;endFill=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="co" target="fyd32oieSdFDLGJmJ2Nf-12">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="925.5" y="238" as="sourcePoint"/>
+                        <mxPoint x="925.5" y="807" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-71" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="384" y="238" width="25" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-72" value="N" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="384" y="871" width="27" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-77" value="&lt;span&gt;&lt;b&gt;passcode&lt;/b&gt;&lt;/span&gt;&lt;hr&gt;passcodeId&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;（PK）&lt;/span&gt;&lt;br&gt;&lt;div&gt;projectId&lt;span style=&quot;&quot;&gt;（FK）&lt;/span&gt;&lt;br&gt;serialNumber（FK）&lt;/div&gt;&lt;div&gt;userId&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;（FK）&lt;/span&gt;&lt;/div&gt;&lt;div&gt;targetDate&lt;div&gt;passcord&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fontStyle=0" vertex="1" parent="1">
+                    <mxGeometry x="-347" y="564" width="245" height="137" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-78" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="-245" y="503" width="25" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-79" value="N" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="-248" y="538" width="27" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-87" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;fontSize=10;endArrow=none;endFill=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="fyd32oieSdFDLGJmJ2Nf-8" target="fyd32oieSdFDLGJmJ2Nf-77">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="48" y="660" as="sourcePoint"/>
+                        <mxPoint x="-98" y="660" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-88" value="N" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="-101" y="605" width="27" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-89" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="23" y="605" width="25" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-92" value="&lt;span&gt;&lt;b&gt;passcord_notification&lt;/b&gt;&lt;/span&gt;&lt;hr&gt;passcordId&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;（PK）&lt;/span&gt;&lt;br&gt;&lt;div&gt;sentDateTime&lt;/div&gt;&lt;div&gt;status&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fontStyle=0" vertex="1" parent="1">
+                    <mxGeometry x="-347" y="757" width="245" height="95" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-95" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;fontSize=10;endArrow=none;endFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="fyd32oieSdFDLGJmJ2Nf-92" target="fyd32oieSdFDLGJmJ2Nf-77">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="48" y="727.5" as="sourcePoint"/>
+                        <mxPoint x="-102" y="727.5" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-96" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="-245" y="701" width="25" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="fyd32oieSdFDLGJmJ2Nf-97" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="-247" y="733" width="25" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="7xumzdXe_0fF4vnCdgtB-1" value="&lt;span&gt;&lt;b&gt;login_session&lt;/b&gt;&lt;/span&gt;&lt;hr&gt;sessionId&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;（PK）&lt;/span&gt;&lt;div&gt;type(splicer_device_type otdr)&lt;br&gt;serialNumber&lt;font style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;（&lt;/font&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;FK）&lt;/span&gt;&lt;br&gt;userId&lt;font style=&quot;color: rgb(153, 153, 153);&quot;&gt; &lt;/font&gt;&lt;font style=&quot;color: rgb(128, 128, 128);&quot;&gt;※認証後のupdate用&lt;/font&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;code &lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: rgb(63, 63, 63);&quot;&gt;&lt;font style=&quot;color: rgb(128, 128, 128);&quot;&gt;※ランダム値&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;status&lt;/div&gt;&lt;div&gt;expireDateTime&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fontStyle=0" vertex="1" parent="1">
+                    <mxGeometry x="-343" y="889" width="245" height="151" as="geometry"/>
+                </mxCell>
+                <mxCell id="7xumzdXe_0fF4vnCdgtB-4" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;fontSize=10;endArrow=none;endFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="fyd32oieSdFDLGJmJ2Nf-77" target="fyd32oieSdFDLGJmJ2Nf-44">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="48" y="540" as="sourcePoint"/>
+                        <mxPoint x="-98" y="540" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="7xumzdXe_0fF4vnCdgtB-5" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;fontSize=10;endArrow=none;endFill=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="fyd32oieSdFDLGJmJ2Nf-46" target="7xumzdXe_0fF4vnCdgtB-1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="-343" y="510" as="sourcePoint"/>
+                        <mxPoint x="-807" y="574" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="-400" y="324"/>
+                            <mxPoint x="-400" y="965"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="7xumzdXe_0fF4vnCdgtB-6" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="-372" y="324" width="25" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="7xumzdXe_0fF4vnCdgtB-7" value="N" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="-370" y="938" width="27" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="7xumzdXe_0fF4vnCdgtB-8" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=2;fontSize=10;endArrow=none;endFill=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="us" target="7xumzdXe_0fF4vnCdgtB-1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="61" y="976.57" as="sourcePoint"/>
+                        <mxPoint x="-89" y="976.57" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="7xumzdXe_0fF4vnCdgtB-9" value="N" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="-96" y="938" width="27" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="7xumzdXe_0fF4vnCdgtB-10" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="215" y="936" width="25" height="26" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
     <diagram name="③権限マトリクス" id="page3">
-        <mxGraphModel dx="1802" dy="861" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1562" dy="861" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -284,64 +493,64 @@
         </mxGraphModel>
     </diagram>
     <diagram name="④設計意図" id="page4">
-        <mxGraphModel dx="1422" dy="762" grid="0" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1562" dy="861" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="t4" value="④ 設計意図　―　なぜこの設計にしたのか" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=26;fontStyle=1;fontColor=#2C3E50;" vertex="1" parent="1">
+                <mxCell id="t4" value="④ 設計意図　―　なぜこの設計にしたのか" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=26;fontStyle=1;fontColor=#2C3E50;" parent="1" vertex="1">
                     <mxGeometry x="50" y="20" width="1554" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="b1" value="&lt;b&gt;① なぜ RBAC にしたのか&lt;/b&gt;&lt;br/&gt;&lt;hr/&gt;以前の設計は「会社種別ごとに権限を判定」していました。コードの中に if (company.type === &#39;管理会社&#39;) のような条件が増え続けるアンチパターンです。&lt;br/&gt;&lt;br/&gt;RBAC にすることで：&lt;br/&gt;・権限の判定を「Role が持つ Permission を確認する」1パターンに統一&lt;br/&gt;・会社種別の変更・追加があっても権限ロジックは変わらない&lt;br/&gt;・「この人は何ができるか」がロールを見るだけで分かる" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#2980B9;strokeWidth=2;fontSize=13;align=left;verticalAlign=top;spacingLeft=14;spacingTop=12;" vertex="1" parent="1">
+                <mxCell id="b1" value="&lt;b&gt;① なぜ RBAC にしたのか&lt;/b&gt;&lt;br/&gt;&lt;hr/&gt;以前の設計は「会社種別ごとに権限を判定」していました。コードの中に if (company.type === &#39;管理会社&#39;) のような条件が増え続けるアンチパターンです。&lt;br/&gt;&lt;br/&gt;RBAC にすることで：&lt;br/&gt;・権限の判定を「Role が持つ Permission を確認する」1パターンに統一&lt;br/&gt;・会社種別の変更・追加があっても権限ロジックは変わらない&lt;br/&gt;・「この人は何ができるか」がロールを見るだけで分かる" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#2980B9;strokeWidth=2;fontSize=13;align=left;verticalAlign=top;spacingLeft=14;spacingTop=12;" parent="1" vertex="1">
                     <mxGeometry x="50" y="85" width="757" height="228" as="geometry"/>
                 </mxCell>
-                <mxCell id="b2" value="&lt;b&gt;② なぜ会社と権限を分離したのか&lt;/b&gt;&lt;br/&gt;&lt;hr/&gt;組織構造（誰がどの会社に属するか）と権限管理（誰が何をできるか）は、別の関心事です。&lt;br/&gt;&lt;br/&gt;・A社の管理者もB社の管理者も「シスアド」ロールを使う&lt;br/&gt;・会社が増えても、権限の設計は変えなくてよい&lt;br/&gt;・「組織の変更」と「権限の変更」を独立して管理できる&lt;br/&gt;&lt;br/&gt;→ 責務が明確になり、保守しやすくなる" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDEDEC;strokeColor=#E74C3C;strokeWidth=2;fontSize=13;align=left;verticalAlign=top;spacingLeft=14;spacingTop=12;" vertex="1" parent="1">
+                <mxCell id="b2" value="&lt;b&gt;② なぜ会社と権限を分離したのか&lt;/b&gt;&lt;br/&gt;&lt;hr/&gt;組織構造（誰がどの会社に属するか）と権限管理（誰が何をできるか）は、別の関心事です。&lt;br/&gt;&lt;br/&gt;・A社の管理者もB社の管理者も「シスアド」ロールを使う&lt;br/&gt;・会社が増えても、権限の設計は変えなくてよい&lt;br/&gt;・「組織の変更」と「権限の変更」を独立して管理できる&lt;br/&gt;&lt;br/&gt;→ 責務が明確になり、保守しやすくなる" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDEDEC;strokeColor=#E74C3C;strokeWidth=2;fontSize=13;align=left;verticalAlign=top;spacingLeft=14;spacingTop=12;" parent="1" vertex="1">
                     <mxGeometry x="847" y="85" width="757" height="228" as="geometry"/>
                 </mxCell>
-                <mxCell id="b3" value="&lt;b&gt;③ なぜロールを抽象化したのか&lt;/b&gt;&lt;br/&gt;&lt;hr/&gt;User に直接 Permission を付けると：&lt;br/&gt;・100人のユーザーがいれば100回個別設定が必要&lt;br/&gt;・退職時の権限削除漏れが起きやすい&lt;br/&gt;&lt;br/&gt;Role という抽象レイヤーを置くことで：&lt;br/&gt;・権限の変更は Role を一か所変えるだけ → 全員に反映&lt;br/&gt;・ロールを見ればできることが一目瞭然&lt;br/&gt;・再利用性が高く、保守コストが低い" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAFAF1;strokeColor=#27AE60;strokeWidth=2;fontSize=13;align=left;verticalAlign=top;spacingLeft=14;spacingTop=12;" vertex="1" parent="1">
+                <mxCell id="b3" value="&lt;b&gt;③ なぜロールを抽象化したのか&lt;/b&gt;&lt;br/&gt;&lt;hr/&gt;User に直接 Permission を付けると：&lt;br/&gt;・100人のユーザーがいれば100回個別設定が必要&lt;br/&gt;・退職時の権限削除漏れが起きやすい&lt;br/&gt;&lt;br/&gt;Role という抽象レイヤーを置くことで：&lt;br/&gt;・権限の変更は Role を一か所変えるだけ → 全員に反映&lt;br/&gt;・ロールを見ればできることが一目瞭然&lt;br/&gt;・再利用性が高く、保守コストが低い" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAFAF1;strokeColor=#27AE60;strokeWidth=2;fontSize=13;align=left;verticalAlign=top;spacingLeft=14;spacingTop=12;" parent="1" vertex="1">
                     <mxGeometry x="50" y="348" width="757" height="232" as="geometry"/>
                 </mxCell>
-                <mxCell id="b4" value="&lt;b&gt;④ なぜマトリクスで権限を表現したのか&lt;/b&gt;&lt;br/&gt;&lt;hr/&gt;権限設計を図だけで表現すると「誰が何をできるか」が操作レベルで分かりにくくなります。&lt;br/&gt;&lt;br/&gt;マトリクス形式にすることで：&lt;br/&gt;・縦軸（ロール）× 横軸（操作）で網羅的に確認できる&lt;br/&gt;・「シスアドだけができること」が一目で分かる&lt;br/&gt;・「△（条件付き）」で細かいルールも表現できる&lt;br/&gt;・設計レビュー・監査の場面でそのまま使える" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF9E7;strokeColor=#F39C12;strokeWidth=2;fontSize=13;align=left;verticalAlign=top;spacingLeft=14;spacingTop=12;" vertex="1" parent="1">
+                <mxCell id="b4" value="&lt;b&gt;④ なぜマトリクスで権限を表現したのか&lt;/b&gt;&lt;br/&gt;&lt;hr/&gt;権限設計を図だけで表現すると「誰が何をできるか」が操作レベルで分かりにくくなります。&lt;br/&gt;&lt;br/&gt;マトリクス形式にすることで：&lt;br/&gt;・縦軸（ロール）× 横軸（操作）で網羅的に確認できる&lt;br/&gt;・「シスアドだけができること」が一目で分かる&lt;br/&gt;・「△（条件付き）」で細かいルールも表現できる&lt;br/&gt;・設計レビュー・監査の場面でそのまま使える" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF9E7;strokeColor=#F39C12;strokeWidth=2;fontSize=13;align=left;verticalAlign=top;spacingLeft=14;spacingTop=12;" parent="1" vertex="1">
                     <mxGeometry x="847" y="348" width="757" height="232" as="geometry"/>
                 </mxCell>
-                <mxCell id="sm" value="まとめ：「会社に依存した権限」をやめ、シンプルで理解しやすく・実装しやすく・将来拡張しやすい権限管理基盤を作ること。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2C3E50;strokeColor=#2C3E50;fontColor=#FFFFFF;fontSize=15;align=center;verticalAlign=middle;fontStyle=1;" vertex="1" parent="1">
+                <mxCell id="sm" value="まとめ：「会社に依存した権限」をやめ、シンプルで理解しやすく・実装しやすく・将来拡張しやすい権限管理基盤を作ること。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2C3E50;strokeColor=#2C3E50;fontColor=#FFFFFF;fontSize=15;align=center;verticalAlign=middle;fontStyle=1;" parent="1" vertex="1">
                     <mxGeometry x="50" y="615" width="1554" height="62" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
     <diagram name="⑤ユースケース" id="page5">
-        <mxGraphModel dx="1422" dy="762" grid="0" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1562" dy="861" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="t5" value="⑤ ユースケース　―　実際にどう動くか" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=26;fontStyle=1;fontColor=#2C3E50;" vertex="1" parent="1">
+                <mxCell id="t5" value="⑤ ユースケース　―　実際にどう動くか" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=26;fontStyle=1;fontColor=#2C3E50;" parent="1" vertex="1">
                     <mxGeometry x="50" y="20" width="1554" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="u1" value="&lt;b&gt;CASE 1　新規顧客 Company の追加&lt;/b&gt;&lt;br/&gt;&lt;hr/&gt;① Company レコードを作成（type = &#39;顧客&#39;）&lt;br/&gt;② 以上。権限の設定は不要。&lt;br/&gt;&lt;br/&gt;ポイント：Company を作っても権限は自動付与されません。&lt;br/&gt;権限は User に Role を割り当てて初めて有効になります。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#2980B9;strokeWidth=2;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingTop=10;" vertex="1" parent="1">
+                <mxCell id="u1" value="&lt;b&gt;CASE 1　新規顧客 Company の追加&lt;/b&gt;&lt;br/&gt;&lt;hr/&gt;① Company レコードを作成（type = &#39;顧客&#39;）&lt;br/&gt;② 以上。権限の設定は不要。&lt;br/&gt;&lt;br/&gt;ポイント：Company を作っても権限は自動付与されません。&lt;br/&gt;権限は User に Role を割り当てて初めて有効になります。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#2980B9;strokeWidth=2;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingTop=10;" parent="1" vertex="1">
                     <mxGeometry x="50" y="85" width="484" height="185" as="geometry"/>
                 </mxCell>
-                <mxCell id="u2" value="&lt;b&gt;CASE 2　顧客にシスアドを作成する&lt;/b&gt;&lt;br/&gt;&lt;hr/&gt;① User レコードを作成（companyId = 顧客A社）&lt;br/&gt;② UserRole に「シスアド」のロールを紐づける&lt;br/&gt;③ 即座にシスアドの全権限が有効になる&lt;br/&gt;&lt;br/&gt;ポイント：権限の付与は UserRole への1行追加だけ。&lt;br/&gt;Permission を個別に設定する必要はありません。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#2980B9;strokeWidth=2;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingTop=10;" vertex="1" parent="1">
+                <mxCell id="u2" value="&lt;b&gt;CASE 2　顧客にシスアドを作成する&lt;/b&gt;&lt;br/&gt;&lt;hr/&gt;① User レコードを作成（companyId = 顧客A社）&lt;br/&gt;② UserRole に「シスアド」のロールを紐づける&lt;br/&gt;③ 即座にシスアドの全権限が有効になる&lt;br/&gt;&lt;br/&gt;ポイント：権限の付与は UserRole への1行追加だけ。&lt;br/&gt;Permission を個別に設定する必要はありません。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#2980B9;strokeWidth=2;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingTop=10;" parent="1" vertex="1">
                     <mxGeometry x="585" y="85" width="484" height="185" as="geometry"/>
                 </mxCell>
-                <mxCell id="u3" value="&lt;b&gt;CASE 3　作業者を PJ に直接アサイン（チームなし）&lt;/b&gt;&lt;br/&gt;&lt;hr/&gt;① User「佐藤さん」に「作業者」ロールを割り当て&lt;br/&gt;② UserProject に（userId, projectId, teamId=null）を追加&lt;br/&gt;③ チームに属さず直接プロジェクトに参加&lt;br/&gt;&lt;br/&gt;できること：参加 PJ の更新のみ。&lt;br/&gt;他の PJ は参照不可。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAFAF1;strokeColor=#27AE60;strokeWidth=2;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingTop=10;" vertex="1" parent="1">
+                <mxCell id="u3" value="&lt;b&gt;CASE 3　作業者を PJ に直接アサイン（チームなし）&lt;/b&gt;&lt;br/&gt;&lt;hr/&gt;① User「佐藤さん」に「作業者」ロールを割り当て&lt;br/&gt;② UserProject に（userId, projectId, teamId=null）を追加&lt;br/&gt;③ チームに属さず直接プロジェクトに参加&lt;br/&gt;&lt;br/&gt;できること：参加 PJ の更新のみ。&lt;br/&gt;他の PJ は参照不可。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAFAF1;strokeColor=#27AE60;strokeWidth=2;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingTop=10;" parent="1" vertex="1">
                     <mxGeometry x="1120" y="85" width="484" height="185" as="geometry"/>
                 </mxCell>
-                <mxCell id="u4" value="&lt;b&gt;CASE 4　マネージャーがプロジェクトを管理する&lt;/b&gt;&lt;br/&gt;&lt;hr/&gt;① User「鈴木さん」に「マネージャー」ロールを割り当て&lt;br/&gt;② project:create / project:update / project:assign が可能&lt;br/&gt;③ チームを作成し、作業者を PJ にアサインできる&lt;br/&gt;&lt;br/&gt;できないこと：user:create / user:delete（シスアド専用）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF9E7;strokeColor=#F39C12;strokeWidth=2;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingTop=10;" vertex="1" parent="1">
+                <mxCell id="u4" value="&lt;b&gt;CASE 4　マネージャーがプロジェクトを管理する&lt;/b&gt;&lt;br/&gt;&lt;hr/&gt;① User「鈴木さん」に「マネージャー」ロールを割り当て&lt;br/&gt;② project:create / project:update / project:assign が可能&lt;br/&gt;③ チームを作成し、作業者を PJ にアサインできる&lt;br/&gt;&lt;br/&gt;できないこと：user:create / user:delete（シスアド専用）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF9E7;strokeColor=#F39C12;strokeWidth=2;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingTop=10;" parent="1" vertex="1">
                     <mxGeometry x="50" y="308" width="484" height="192" as="geometry"/>
                 </mxCell>
-                <mxCell id="u5" value="&lt;b&gt;CASE 5　ロール変更でできることが変わる&lt;/b&gt;&lt;br/&gt;&lt;hr/&gt;Before：佐藤さんは「作業者」ロール&lt;br/&gt;　→ 参加 PJ の更新のみ可能&lt;br/&gt;&lt;br/&gt;After：佐藤さんを「マネージャー」に変更&lt;br/&gt;　① UserRole の roleId を更新するだけ&lt;br/&gt;　② 即座に project:create / project:assign が可能に&lt;br/&gt;&lt;br/&gt;ポイント：コードの変更は不要。データ変更だけ。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDEDEC;strokeColor=#E74C3C;strokeWidth=2;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingTop=10;" vertex="1" parent="1">
+                <mxCell id="u5" value="&lt;b&gt;CASE 5　ロール変更でできることが変わる&lt;/b&gt;&lt;br/&gt;&lt;hr/&gt;Before：佐藤さんは「作業者」ロール&lt;br/&gt;　→ 参加 PJ の更新のみ可能&lt;br/&gt;&lt;br/&gt;After：佐藤さんを「マネージャー」に変更&lt;br/&gt;　① UserRole の roleId を更新するだけ&lt;br/&gt;　② 即座に project:create / project:assign が可能に&lt;br/&gt;&lt;br/&gt;ポイント：コードの変更は不要。データ変更だけ。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDEDEC;strokeColor=#E74C3C;strokeWidth=2;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingTop=10;" parent="1" vertex="1">
                     <mxGeometry x="585" y="308" width="484" height="192" as="geometry"/>
                 </mxCell>
-                <mxCell id="u6" value="&lt;b&gt;CASE 6　将来的に新しい権限を追加する&lt;/b&gt;&lt;br/&gt;&lt;hr/&gt;例）新機能「レポート出力」を追加する場合&lt;br/&gt;&lt;br/&gt;① Permission に「report:export」を1行追加&lt;br/&gt;② マネージャーの RolePermission に紐づける&lt;br/&gt;③ マネージャーロールを持つ全員が即座に利用可能&lt;br/&gt;&lt;br/&gt;ポイント：作業者・ユーザーへの変更は一切不要。&lt;br/&gt;「ロールに追加するだけ」で拡張完了。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#2980B9;strokeWidth=2;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingTop=10;" vertex="1" parent="1">
+                <mxCell id="u6" value="&lt;b&gt;CASE 6　将来的に新しい権限を追加する&lt;/b&gt;&lt;br/&gt;&lt;hr/&gt;例）新機能「レポート出力」を追加する場合&lt;br/&gt;&lt;br/&gt;① Permission に「report:export」を1行追加&lt;br/&gt;② マネージャーの RolePermission に紐づける&lt;br/&gt;③ マネージャーロールを持つ全員が即座に利用可能&lt;br/&gt;&lt;br/&gt;ポイント：作業者・ユーザーへの変更は一切不要。&lt;br/&gt;「ロールに追加するだけ」で拡張完了。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#2980B9;strokeWidth=2;fontSize=12;align=left;verticalAlign=top;spacingLeft=12;spacingTop=10;" parent="1" vertex="1">
                     <mxGeometry x="1120" y="308" width="484" height="192" as="geometry"/>
                 </mxCell>
-                <mxCell id="ue1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#BDC3C7;strokeWidth=2;endArrow=open;endFill=0;" edge="1" source="u1" target="u2" parent="1">
+                <mxCell id="ue1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#BDC3C7;strokeWidth=2;endArrow=open;endFill=0;" parent="1" source="u1" target="u2" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="ue2" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#BDC3C7;strokeWidth=2;endArrow=open;endFill=0;" edge="1" source="u2" target="u3" parent="1">
+                <mxCell id="ue2" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#BDC3C7;strokeWidth=2;endArrow=open;endFill=0;" parent="1" source="u2" target="u3" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="usm" value="この設計ではデータを変えるだけで権限が変わります。コードの変更なし・デプロイなし・即時反映。これが RBAC の最大のメリットです。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2C3E50;strokeColor=#2C3E50;fontColor=#FFFFFF;fontSize=14;align=center;verticalAlign=middle;fontStyle=1;" vertex="1" parent="1">
+                <mxCell id="usm" value="この設計ではデータを変えるだけで権限が変わります。コードの変更なし・デプロイなし・即時反映。これが RBAC の最大のメリットです。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2C3E50;strokeColor=#2C3E50;fontColor=#FFFFFF;fontSize=14;align=center;verticalAlign=middle;fontStyle=1;" parent="1" vertex="1">
                     <mxGeometry x="50" y="535" width="1554" height="58" as="geometry"/>
                 </mxCell>
             </root>
